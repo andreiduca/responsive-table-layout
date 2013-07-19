@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			background: #f8f8f8;
+			font: 14px Arial, sans-serif;
+		}
+
+		/*** normal display screens ***/
+		@media all and (min-width: 401px) {
+			/* nice table styles */
+			.table {
+				background: #fff;
+				border-bottom: 1px solid #ddd;
+				border-right: 1px solid #ddd;
+				border-collapse: collapse;
+			}
+			.th, .td {
+				border-top: 1px solid #ddd;
+				border-left: 1px solid #ddd;
+			}
+			.th {
+				padding: 5px 8px;
+				color: #fff;
+				background-color: #39f;
+				font-size: 16px;
+				font-weight: normal;
+			}
+			.td {
+				padding: 3px 8px;
+			}
+		}
+
+		/*** small display screens ***/
+		@media all and (max-width: 400px) {
+			/* break the table display rules */
+			.table, .tr, .td { display: block; box-sizing: border-box; }
+			/* hide table header */
+			[data-scope="table-header"] { display: none; }
+
+			/* nice table styles*/
+			.table { margin-top: 1rem; }
+
+			/* google-like cards :D */
+			.tr {
+				position: relative;
+				float: left;
+				width: 96%;
+				margin: 0 2% 4% 2%;
+				padding: 1rem;
+				background: #fff;
+				box-shadow: 2px 2px 4px rgba(0,0,0, 0.15);
+			}
+
+			/* info row */
+			.td {
+				padding-left: 30%;
+				line-height: 1.5rem;
+				margin-bottom: .5rem;
+				padding-bottom: .5rem;
+
+				border-bottom: 1px solid #eee;
+
+				color: #444;
+				font-size: 16px;
+			}
+			.td:last-child {
+				margin-bottom: 0;
+				padding-bottom: 0;
+				border-bottom: none;
+			}
+			/* labels form custom attributes */
+			.td::before {
+				content: attr(data-tag);
+				display: block;
+				float: left;
+				width: 30%;
+				margin-left: -32%;
+
+				color: #111;
+				font-size: 12px;
+				font-weight: bold;
+				text-align: right;
+			}
+
+			/* special data styles */
+			.data-options {
+				line-height: 1;
+			}
+			.data-options a {
+				font-size: 12px;
+				color: #39f;
+			}
+			.data-options a:hover {
+				text-decoration: none;
+			}
+		}
+	</style>
+</head>
+<body>
+
+<table class="table">
+	<tr class="tr" data-scope="table-header">
+		<th class="th">ID</th>
+		<th class="th">Name</th>
+		<th class="th">Address</th>
+		<th class="th">Status</th>
+		<th class="th">options</th>
+	</tr>
+	<tr class="tr">
+		<td class="td data-id" data-tag="ID">1</td>
+		<td class="td data-name" data-tag="Name">Jon Doe</td>
+		<td class="td data-address" data-tag="Address">48 North St., New York, NY</td>
+		<td class="td data-status" data-tag="Status">pending</td>
+		<td class="td data-options"><a href="">edit</a>, <a href="">remove</a></td>
+	</tr>
+	<tr class="tr">
+		<td class="td data-id" data-tag="ID">2</td>
+		<td class="td data-name" data-tag="Name">Anna Morrison</td>
+		<td class="td data-address" data-tag="Address">32 Delaware blvd., Los Angeles, CA</td>
+		<td class="td data-status" data-tag="Status">in progress</td>
+		<td class="td data-options"><a href="">edit</a>, <a href="">close</a></td>
+	</tr>
+	<tr class="tr">
+		<td class="td data-id" data-tag="ID">3</td>
+		<td class="td data-name" data-tag="Name">Barth Stevens</td>
+		<td class="td data-address" data-tag="Address">3 Carlston blvd., Chicago, IL</td>
+		<td class="td data-status" data-tag="Status">closed</td>
+		<td class="td data-options"><a href="">details</a></td>
+	</tr>
+</table>
+
+</body>
+</html>
